@@ -23,7 +23,7 @@ def get_exif(fn):
         return False
 
 
-path = r'C:\Users\532975\Downloads\TEMP'
+path = r'E:\My Pictues\Tony'
 for root, dirnames, filenames in os.walk(path):
 
 		videoFiles = ['.avi', '.mp4', '.m4v','.mov']
