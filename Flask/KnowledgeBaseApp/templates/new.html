@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Add a new Entry</h1>
+
+<form action="{{url_for('index')}}" method="POST">
+	<textarea rows="10" cols="50" name="description" autofocus="true"></textarea><br/><br/>
+	<input type="text" name="category" list="categoryChoices"><br/><br/>
+	<input type="submit" value="Add">
+
+		<datalist id="categoryChoices">
+		<option label="Python" value="Python">
+		<option label="OTCnet" value="OTCnet">
+		<option label="Testing" value="Testing">
+		<option label="Selenium" value="Selenium">
+		<option label="Tools" value="Tools">
+		<option label="Windows" value="Windows">
+
+		</datalist>
+		<script>CKEDITOR.replace( 'description' );	</script>
+</form>
+{% endblock %}

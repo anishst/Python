@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+	<h1>Edit Entry</h1>
+	<form method="POST" action="{{url_for('show', id=items.id)}}?_method=PATCH">
+		<fieldset>
+			<legend>Update Info:</legend>
+			<label for="description">Description:<textarea rows="30" cols="100" id="description" name="description">{{items.description}} </textarea></label>
+			<br/>
+			<label for="category">Category:<input type="text" name="category" id="category" value="{{items.category}}"></label>
+			
+		</fieldset>
+		<input type="submit" value="Edit Post">
+
+					</form>
+				<script>CKEDITOR.replace( 'description' );	</script>
+				{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Search Results</h1>
+
+<p>
+	<button type="button" onclick="window.location.href='{{ url_for('index') }}';" autofocus="true">Go Back</button>
+</p>
+<p>Your search returned <strong>{{ items | length }} </strong> item(s).</p>
+	<table border="1">
+		<tr>
+			<th>Description</th>
+			<th>Category</th>
+			<th>Date Added</th>
+			<th>Details</th>
+		</tr>
+
+{% for article in items %}
+		<tr>
+			<td>{{ article.description | safe}}</td>
+			<td> {{ article.category}}</td>
+			<td> {{ article.created_ts}}</td>
+			<td>
+			<button type="button" onclick="window.location.href='{{ url_for('show', id=article.id) }}';">Details</button><br/><br/>
+			<button type="button" onclick="window.location.href='{{ url_for('edit', id=article.id) }}';">Edit</button>
+			</td>
+		</tr>
+{% endfor %}		
+	</table>
+	
+
+
+
+
+{% endblock %}

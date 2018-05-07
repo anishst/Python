@@ -57,7 +57,7 @@ def printResults(dict1):
  
 if __name__ == '__main__':
     dups = {}
-    folders = [r'E:\My Pictues\2014\Tony 5th Birthday']
+    folders = [r'C:\Users\532975\Downloads']
     for i in folders:
         # Iterate the folders given
         if os.path.exists(i):

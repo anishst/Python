@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>First Flask App!</title>
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='prism.css') }}">
+		<script src="https://cdn.ckeditor.com/4.9.0/standard/ckeditor.js"></script>
+		<script src="{{ url_for('static', filename='prism.js') }}"></script>
+ 		 	
+	</head>
+	<body>
+		<div class="topnav">
+			<a class="active" href="{{ url_for('index') }}">Home</a>
+			<a href="{{ url_for('glossary') }}">Glossary</a>
+			<a href="tools.html">Tools</a>
+			
+		</div>
+		<div id="content">
+	
+			{% block content %}
+			{% endblock %}
+		</div>
+	</body>
+</html>

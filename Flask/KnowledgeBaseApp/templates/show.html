@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+	<h1>Item Details</h1>
+	<table>
+		<tr>
+			<td>ID</td>
+			<td>{{ items.id}}</td>
+		</tr>
+		<tr>
+			<td>Description</td>
+			<td>{{ items.description | safe}}</td>
+		</tr>
+		<tr>
+			<td>Category</td>
+			<td>{{ items.category}}</td>
+		</tr>
+		<tr>
+			<td>Created Timestamp</td>
+			<td>{{ items.created_ts}}</td>
+		</tr>
+		<tr>
+			<td>Update Timestamp</td>
+			<td>{{ items.last_updated_ts}}</td>
+		</tr>
+	</tr>
+	<tr>
+		<td><a href="{{url_for('edit', id=items.id)}}">EDIT ITEM</a>
+	</td>
+	<td>
+		<form method="POST" action="{{url_for('show', id=items.id)}}?_method=DELETE">
+			<input type="submit" value="Delete" onclick="return confirm('Are you sure?')" >
+		</form></td>
+		
+	</tr>
+</table>
+{% endblock %}

@@ -1,0 +1,753 @@
+{% extends 'base.html' %}
+{% block content %}
+<A name=top></A>
+<H1>Glossary</H1>
+<DIV id=3Dcontent>
+<P><A href="#A">A</A>&nbsp;
+<A href="#B">B</A>&nbsp;
+<A href="#C">C</A>&nbsp;
+<A href="#D">D</A>&nbsp;
+E&nbsp; <A href="#F">F</A>&nbsp;
+G&nbsp; <A href="#H">H</A>&nbsp;
+<A href="#I">I</A>&nbsp;
+J&nbsp; K&nbsp; <A href="#L">L</A>&nbsp;
+<A href="#M">M</A>&nbsp;
+<A href="#N">N</A>&nbsp;
+<A href="#O">O</A>&nbsp;
+<A href="#P">P</A>&nbsp;
+Q&nbsp; <A href="#R">R</A>&nbsp;
+<A href="#S">S</A>&nbsp;
+<A href="#T">T</A>&nbsp;
+<A href="#U">U</A>&nbsp;
+<A class=3Dhyperlink
+href="V">V</A>&nbsp;
+W&nbsp; X&nbsp; Y&nbsp; Z&nbsp; </P>
+
+<BR><A
+name="access groups by users report"></A>
+<P><STRONG>Access Groups by Users Report</STRONG> - This report displaysthe
+roles and the corresponding access groups of the role for a particularOTCnet
+user. The role assigns the permissions (functions/features) that a userhas
+access to in OTCnet. The access group governs the OTC Endpoint(s) andthe data
+that a user has permission to access.</P><A name="accountingcode"></A>
+<P><STRONG>Accounting Code</STRONG> - A unique agency classificationcode
+assigned to a transaction. Identifies the FRB Account Key that is usedwithin
+the Federal Reserve. In check capture, it is a method of groupingindividual
+check transactions into certain classifications. In deposit reporting,the
+classification is being done at a voucher level, where a voucher isbeing
+classified with one or many agency defined accounting codes orTAS.</P><A
+name="accounting code description"></A>
+<P><STRONG>Accounting Code Description</STRONG> - A brief explanationthat
+provides further detail about an accounting code.</P><A
+name="accounting code name"></A>
+<P><STRONG>Accounting Code Name</STRONG> - The title of the accounting
+code.</P><A name="accounting key"></A>
+<P><STRONG>Accounting Key</STRONG> - The account number assigned to adeposit
+when it is submitted to FRB CA$HLINK. The FRB Account Key is used by FRB
+CASHLINK in combination with the RTN to determine the appropriateCA$HLINK II
+CAN. The FRB Account Key is similar to the CAN, but is only used for FRB
+financial activity.</P><A name="accounting specialist"></A>
+<P><STRONG>Accounting Specialist</STRONG> - A user who is an expert onthe
+organizational structure, reporting needs and accounting rules for theiragency.
+This role will establish and maintain the organizational foundation,accounting
+data and accounting relationships at the highest level of the agency in
+OTCnet.</P><A name="acknowledged batch status"></A>
+<P><STRONG>Acknowledged Batch Status </STRONG>- Indicates the batch was
+transmitted and fully processed by the OTCnet server withouterror.</P><A
+name="acknowledged error batch status"></A>
+<P><STRONG>Acknowledged Error Batch Status </STRONG>- Indicates theacknowledge
+batch process experienced system errors and the acknowledgment wasunsuccessful,
+or a user selected to cancel the batch acknowledgment which results in abatch
+being updated to Acknowledgment Error.</P><A name="activity type"></A>
+<P><STRONG>Activity Type</STRONG> - The parameter indicates if a UserDefined
+Field (UDF) is used for capturing custom agency information for adeposit or
+during classifying the deposit with accounting codes. OTCnet allows forthe
+creation of three UDFs for the deposit activity, and two UDFs for thedeposit
+accounting subtotals activity.</P><A name="adjustment activity (fi)report"></A>
+<P><STRONG>Adjustment Activity (FI) Report</STRONG> - A business reportthat
+allows you to view adjustments made by your financial institution(FI).</P><A
+name="adjustment activity (frb) report"></A>
+<P><STRONG>Adjustment Activity (FRB) Report</STRONG> - A business reportthat
+allows you view adjustments made by your Federal Reserve Bank (FRB).</P><A
+name="adjustments by otc endpoints report"></A>
+<P><STRONG>Adjustments by OTC Endpoints Report</STRONG> - A businessreport that
+allows you to view adjustments made by Agency Location Code (ALC) andAdjustment
+Types (Credit, Debit or Return Item Adjustments). An adjustment wascreated when
+a deposit ticket has been received by a financial institution and theamount of
+the deposit does not match the deposit amount reported on the deposit
+ticket.</P><A name="agency cira report"></A>
+<P><STRONG>Agency CIRA Report</STRONG> - A check processing businessreport that
+allows you to view the batch level transaction activity for a specifiedOTC
+Endpoint. A user can filter the report by Received Date, Capture Date,Batch ID,
+or Check Capture Operator.</P><A name="agency contact"></A>
+<P><STRONG>Agency Contact</STRONG> - A person designated by an agency asthe
+primary contact regarding deposit-related matters.</P><A
+name="agency information"></A>
+<P><STRONG>Agency Information</STRONG> - The optional comments orinstructions,
+receipt processing dates, alternate agency contact, and internal controlnumber
+for your deposit.</P><A name="agency location code (alc)"></A>
+<P><STRONG>Agency Location Code (ALC)</STRONG> - A numeric symbolidentifying
+the agency accounting and/or reporting office. </P><A
+name="agency location code plus 2 (alc+2)"></A>
+<P><STRONG>Agency Location Code plus 2 (ALC+2)</STRONG> - A numericsymbol
+identifying the agency accounting and/or reporting office.</P><A
+name="agency manager"></A>
+<P><STRONG>Agency Manager</STRONG> - A user that has authorization toview and
+download CIRA records and view reports.</P><A
+name="alternate agency contact"></A>
+<P><STRONG>Alternate Agency Contact</STRONG> - A person designated by anagency
+as the secondary contact regarding deposit-related matters.</P><A
+name="american bankers association (aba)"></A>
+<P><STRONG>American Bankers Association (ABA) </STRONG>- (also known asBank
+Routing Number) A routing transit number (RTN), routing number, or ABAnumber is
+a nine-digit bank code, used in the United States, which appears on thebottom
+of negotiable instruments such as checks identifying the financialinstitution
+on which it was drawn.</P><A name="approved batch status"></A>
+<P><STRONG>Approved Batch Status</STRONG> - Indicates that the batch isready
+for settlement (online only). Indicates that the batch is ready forupload and
+settlement (offline only).</P><A name="audit log"></A>
+<P><STRONG>Audit Log</STRONG> - A table that records all interactionsbetween
+the user and OTCnet Deposit Reporting, Check Capture, Check Processing,
+administrative actions and other processes that take place in theapplication.
+Some entries also contain before and after values for actions completed.The
+audit log is available for download to a <EM>comma separated valuereport
+(CSV)</EM> and opened in a spreadsheet program or available to print ina
+formatted audit log report.</P><A name="automated clearing house"></A>
+<P><STRONG>Automated Clearing House</STRONG> - A computerized networkused by
+member financial institutions to process payment orders in machinereadable
+form. ACH processes both credit and debit transactions between financial
+institutions in batches. ACH items are settled electronically and do notrequire
+an image.</P><A name="awap (awaiting approval)"></A>
+<P><STRONG>Awaiting Approval (AWAP) </STRONG>- A deposit that is waitingfor
+deposit confirmation by a Deposit Approver.</P>
+<P><A href="#top">Return to top</A> </P>
+
+<P><A name=B></A>B</P><A name="back office processingmethod"></A>
+<P><STRONG>Back Office Processing Method</STRONG> - Indicates that acustomer
+presented a check in person, but the check is being scanned in acontrolled
+back-office environment away from the customer.</P><A name=batch></A>
+<P><STRONG>Batch</STRONG> - A file containing the transactioninformation and
+tiff images (collection of scanned checks) of one or more checks, whichwill be
+sent for settlement.</P><A name="batch approver"></A>
+<P><STRONG>Batch Approver</STRONG> - An agency user that has theauthorization
+to approve a batch either prior to batch upload from OTCnet Offline orwhen a
+batch is uploaded/submitted to OTCnet Online but not yet approved. TheBatch
+Approver permission must be applied to either a Check Capture LeadOperator or
+Check Capture Operator roles and allows the operators to approve batchesthat
+they have created. This role should be granted in limited cases at siteswhere
+there is a need for the operator to perform this function without aCheck
+Capture Supervisor present.</P><A name="batch control"></A>
+<P><STRONG>Batch Control/Batch Balancing </STRONG>- An optional feature(which
+can be configured to be mandatory) that agencies can use as a batchbalancing
+tool to perform checks and balances on the number of checks that havebeen
+scanned, and ensure their respective dollar amounts and check numbertotals have
+been accurately entered. The functionality is available for both singleitem
+mode and batch mode.</P><A name="batch list report"></A>
+<P><STRONG>Batch List Report</STRONG> - A report that containstransaction
+information for each batch item, including the Individual ReferenceNumber
+(IRN), Item Type, ABA Number, Account Number, Check Number, andAmount.</P><A
+name="batch id"></A>
+<P><STRONG>Batch ID</STRONG> - The unique number assigned to a batch by
+OTCnet.</P><A name="batch status"></A>
+<P><STRONG>Batch Status</STRONG> - Reflects the current state of a batchduring
+processing, transmission, and settlement. The batch states for OTCnetOnline are
+Open, Closed, Approved, and Forwarded. The batch states for OTCnetOffline are
+Open, Closed, Approved, Sending, Sent, Acknowledged, Send Error, and
+Acknowledgment Error (offline only). </P><A name="batch uploader"></A>
+<P><STRONG>Batch Uploader</STRONG> - An agency user that has theauthorization
+to upload a batch from OTCnet Offline to the online database. The BatchUploader
+permission must be applied to either a Check Capture Lead Operator orCheck
+Capture Operator roles and allows the operators to auto-upload the batchupon
+close (if the terminal is configured to do so), or upload approvedbatches. This
+role should be granted in limited cases at sites where there is a needfor the
+operator to perform this function without a Check Capture Supervisor
+present.</P><A name=blocked></A>
+<P><STRONG>Blocked</STRONG> - A customer may no longer present checksfor a
+specific ABA number and account number due to manual entry by authorizedpersons
+into the MVD, rather than the result of a failed transaction. Ifdesired, an
+authorized user can edit the transactional record to a clearstatus.</P><A
+name="business event type code (betc) "></A>
+<P><STRONG>Business Event Type Code (BETC)</STRONG> - A code used in the
+CARS/GWA system to indicate the type of activity being reported, such as
+payments, collections, borrowings, etc. This code must accompany theTreasury
+Account Symbol (TAS).</P>
+<P><A href="#top">Return to top</A> </P>
+<P><A name=C></A>C</P><A name="ca$hlink ii"></A>
+<P><STRONG>CA$HLINK II</STRONG> - An electronic cash concentration,financial
+information, and data warehouse system used to manage the collection ofU.S.
+government funds and to provide deposit information to Federalagencies.</P><A
+name="ca$hlink ii account number (can)"></A>
+<P><STRONG>CA$HLINK II Account Number (CAN)</STRONG> - The accountnumber
+assigned to a deposit when it is submitted to CA$HLINK II.</P><A
+name="capture date"></A>
+<P><STRONG>Capture Date</STRONG> - The calendar date and time thepayment is
+processed by the agency.</P><A name="cashier id"></A>
+<P><STRONG>Cashier ID</STRONG> - The ID of the user that created the
+transaction.</P><A name="central accounting reporting system (cars)"></A>
+<P><STRONG>Central Accounting Reporting System (CARS)</STRONG> -(formerly GWA)
+The system that addresses the central accounting and reporting functionsand
+processes associated with budget execution, accountability, andcash/other asset
+management. This includes the collection and dissemination of financial
+management and accounting information from and to federal program
+agencies.</P><A name="central image and research archive (cira)"></A>
+<P><STRONG>Central Image and Research Archive (CIRA)</STRONG> - TheCentral
+Image Research Archive (CIRA) is an image archive of all items processedin the
+OTCnet System. </P><A name=characteristics></A>
+<P><STRONG>Characteristics</STRONG> - The properties of a user,organization,
+deposit, or financial institution.</P><A name="check 21"></A>
+<P><STRONG>Check 21</STRONG> - Provides the legal framework for thecreation of
+substitute checks which can be used in place of the original paperdocument,
+without an agreement in place with other financial institutions. Asubstitute
+check is a paper reproduction of the original check. Check 21 itemsrequire an
+image before they can settle. Check 21 is also referred to as checktruncation.
+</P><A name="check amount"></A>
+<P><STRONG>Check Amount</STRONG> - The dollar amount of the check.</P><A
+name="check capture"></A>
+<P><STRONG>Check Capture</STRONG> - The component of OTCnet used toprocess scan
+images of checks and money orders through OTCnet for the electronicdeposit of
+checks and money orders at financial institutions. Check capture can bedone
+online through the internet, or offline through the user'sdesktop.</P><A
+name="check capture administrator"></A>
+<P><STRONG>Check Capture Administrator</STRONG> - An agency user thathas the
+authorization to define and modify the check capture sites; to manageaccounting
+codes; to modify endpoint mappings; to configure Check Capture functionsand
+perform upgrades of the application; to download user profiles; as wellas
+download software or firmware to the terminal using the Download CheckCapture
+application permission.</P><A name="check capture lead operator"></A>
+<P><STRONG>Check Capture Lead Operator </STRONG>- An agency user thathas the
+authorization to in scan checks into a batch, close a batch, balancecheck
+amounts and enter batch control values during batch closing.Additionally, the
+user is authorized to accept checks with poor quality, make MICR line
+corrections, and accept duplicate checks. This user is not authorized;however,
+to use an out-of-date LVD. </P><A name="check capture offline"></A>
+<P><STRONG>Check Capture Offline </STRONG>- A web-based functionality inthe
+offline Check Capture application that resides in the user's desktop for
+capturing check images for the electronic deposit of checks and moneyorders.
+The check transactions are stored within a local database, and the check
+information will need to be uploaded to OTCnet server when there isinternet
+connectivity before they can be deposited for settlement. </P><A
+name="check capture online"></A>
+<P><STRONG>Check Capture Online </STRONG>- A web-based functionalitywithin
+OTCnet to allow agencies users to process scanned images of checks andmoney
+orders for the electronic deposit of checks and money orders atfinancial
+institutions. The check transactions are directly saved to the OTCnetonline
+database, and no upload of batches of checks are needed.</P><A
+name="check capture operator"></A>
+<P><STRONG>Check Capture Operator</STRONG> - An agency user that has the
+authorization to perform only very minimal Check Capture activities.This user
+has authorization to scan checks into a batch and close a batch. Thisuser does
+not have authorization to accept duplicates, make MICR corrections,authorize
+the use of out-of-date LVD, or accept checks with poor quality.Additionally,
+the user can enter/apply the Accounting Code at the time of scanningchecks is
+established. </P><A name="check capture supervisor"></A>
+<P><STRONG>Check Capture Supervisor</STRONG> - An agency user that hasthe
+authorization to perform all the functions on the Check Capture. Theuser has
+authorization to accept duplicates (not recommended), make MICRcorrections,
+authorize the use of out-of-date LVD, and accept checks with poorquality as
+well as view, modify, import, and modify endpoint mappings. </P><A
+name="check number"></A>
+<P><STRONG>Check Number</STRONG> - The printed number of the checkwriter's
+check.</P><A name="cira csv report"></A>
+<P><STRONG>CIRA CSV Report</STRONG> - A check processing business reportthat
+allows you to export data based on a query to a comma separated valuereport
+(CSV). The exported data can be used to import into other applicationswithin an
+agency.</P><A name="cira viewer"></A>
+<P><STRONG>CIRA Viewer</STRONG> - A user that has authorization to viewCIRA
+records and download CSV files. </P><A name=clear></A>
+<P><STRONG>Clear</STRONG> - Indicates that a customer may present checksfor a
+specific ABA Number and Account Number, because the prior restrictionson the
+individual's check payments have been removed. Note: Manually cleareditems are
+permanently cleared. If a transaction is cleared in error, manualsuspend, block
+or deny records need to be created in its place to preventtransactions.</P><A
+name="closed batch status"></A>
+<P><STRONG>Closed Batch Status</STRONG> - Indicates the batch is closedand no
+new checks may be scanned into that batch. </P><A
+name="collections information repository (cir)"></A>
+<P><STRONG>Collections Information Repository (CIR) </STRONG>- (formerlyTRS) A
+collections reporting tool, supplying the latest information on depositsand
+detail of collections transactions to federal agencies. The system willallow
+financial transaction information from all collections systems andsettlement
+mechanisms to be exchanged in a single system. </P><A
+name="comma separated values (csv)"></A>
+<P><STRONG>Comma Separated Values (CSV)</STRONG> - A computer data fileused for
+storage of data structured in a table form. Each line in the CSV file
+corresponds to a row in the table. Within a line, fields are separatedby
+commas, each field belonging to one table column.</P><Aname=confirmed></A>
+<P><STRONG>Confirmed</STRONG> - A deposit that has been reviewed andthen
+confirmed by a financial institution or FRB.</P><A
+name="cost center work unit (ccwu)"></A>
+<P><STRONG>Cost Center Work Unit (CCWU) </STRONG>- A Federal Reservecost center
+work unit that processing the FRB deposits and adjustments. It isnormally
+abbreviated as CCWU, and provided only on non-commercial (FRB settled)
+transactions. Debits and credits processed by FRB Cleveland will benoted with
+the CCWU number 9910 on the daily accounting statement agencies receivefrom the
+Federal Reserve Bank. </P><A name="custom label"></A>
+<P><STRONG>Custom Label</STRONG> - Text defined by OTCnet that describesa level
+in the organization hierarchy, the internal control number, or agencyaccounting
+code.</P><A name="customer not present processing method"></A>
+<P><STRONG>Customer Not Present Processing Method</STRONG> - Theprocessing
+method selected in OTCnet when processing a check that has beenpresented by a
+check writer who is not present at the agency location i.e., mail.</P><A
+name="customer present processing method"></A>
+<P><STRONG>Customer Present Processing Method</STRONG> - The processingmethod
+used in the OTCnet when the check writer is presenting the check inperson.</P>
+<P><A href="#top">Return to top</A> </P>
+<P><A name=D></A>D</P><A name="daily voucherreport"></A>
+<P><STRONG>Daily Voucher Report</STRONG> - A business report that allowsyou to
+view the daily voucher extract. </P><A name="data type"></A>
+<P><STRONG>Data Type</STRONG> - The type of data that should be enteredfor a
+user defined field.</P><A name="date of deposit"></A>
+<P><STRONG>Date of Deposit</STRONG> - The date, prior to established cutoff
+times, the user transmits a batch of checks and money orders throughcheck
+capture, or the date the agency sends the physical negotiableinstruments to the
+financial institution.</P><A name="debit gateway"></A>
+<P><STRONG>Debit Gateway</STRONG> - The financial settlement programthat is
+responsible for the presenting and settling of payment transactionsacquired
+through the OTCnet application. The Debit Gateway receives a transactionfile
+from OTCnet and determines the proper path for settlement of each item.Items
+are either converted to ACH for direct automated clearing house debit,or are
+included in an image cash letter, which is sent to the Check 21 systemfor
+presentment to paying banks. Once the file is processed, the DebitGateway sends
+a Response Processing File (RPF) to OTCnet with the status of each ofthe items.
+</P><A name="demand deposit account (dda)"></A>
+<P><STRONG>Demand Deposit Account (DDA)</STRONG> - The account at afinancial
+institution where an organization deposits collections.</P><Aname=denied></A>
+<P><STRONG>Denied</STRONG> - Indicates that the OTCnet systempermanently denies
+an individual from cashing a check through OTCnet based on thecombination of
+ABA number, account number, and User Defined Field 1. User Defined Field1 is
+usually the SSN number of an individual.</P><A name="deny date"></A>
+<P><STRONG>Deny Date</STRONG> - Indicates when the verification record(MVD/LVD)
+expires, and OTCnet can start accepting checks that will be presented bya check
+writer that has previously presented a bad check. The Deny Date iscalculated
+based on suspension periods configured in the Check Cashing policy of anOTC
+Endpoint.</P><A name=deposit></A>
+<P><STRONG>Deposit</STRONG> - A collection of over-the-counter receipts
+deposited to a Treasury General Account for credit.</P><A
+name="deposit activity (fi) report"></A>
+<P><STRONG>Deposit Activity (FI) Report</STRONG> - A business reportthat allows
+the financial institution to view deposits submitted to its location.</P><A
+name="deposit activity (frb) report"></A>
+<P><STRONG>Deposit Activity (FRB) Report</STRONG> - A business reportthat
+allows you to view deposits submitted to your FRB.</P><A
+name="deposit approver"></A>
+<P><STRONG>Deposit Approver</STRONG> - A user who has authorization toreview
+and submit deposits to a financial institution.</P><A
+name="deposit confirmer"></A>
+<P><STRONG>Deposit Confirmer</STRONG> - A user at a financialinstitution that
+has authorization to verify the accuracy of deposits received from an
+agency.</P><A name="deposit history by status report"></A>
+<P><STRONG>Deposit History by Status Report</STRONG> - A business reportthat
+allows you to view deposits by status. </P><A name="depositinformation"></A>
+<P><STRONG>Deposit Information</STRONG> - The attributes that define adeposit:
+deposit status, voucher number, deposit endpoint, ALC, voucher date,deposit
+total, check/money order subtotal, currency subtotal, and subtotals by
+accounting code.</P><A name="deposit preparer"></A>
+<P><STRONG>Deposit Preparer</STRONG> - A user that has authorization toprepare
+and save deposits for approval to a Deposit Approver.</P><A
+name="deposit total"></A>
+<P><STRONG>Deposit Total</STRONG> - The total amount of over-the-counter
+receipts included in the deposit.</P><A
+name="deposits by accounting code report"></A>
+<P><STRONG>Deposits by Accounting Code Report</STRONG> - A businessreport that
+allows you to view deposits by accounting code. </P><A
+name="deposits by otc endpoint report"></A>
+<P><STRONG>Deposits by OTC Endpoint Report</STRONG> - A business reportthat
+allows you to view deposits by OTC Endpoint.</P><A
+name="display order number"></A>
+<P><STRONG>Display Order Number</STRONG> - The order in which userdefined
+fields (UDFs) should be displayed.</P><A name=draft></A>
+<P><STRONG>Draft</STRONG> - A deposit that is saved for modification ata later
+date by a Deposit Preparer.</P>
+<P><A href="#top">Return to top</A> </P>
+<P><A name=F></A>F</P><A name=failed></A>
+<P><STRONG>Failed</STRONG> - The item was unable to be processed and/orsettled
+by Treasury/FMS. These are item that could not be collected such asforeign
+items or possible duplicate items. These items are not included on your215
+Report.</P><A name="federal program agency"></A>
+<P><STRONG>Federal Program Agency </STRONG>- A permanent orsemi-permanent
+organization of government that is responsible for the oversight and
+administration of specific functions. </P><A
+name="federal reserve bank (frb)"></A>
+<P><STRONG>Federal Reserve Bank (FRB)</STRONG> - A Federal Reserve Bankis one
+of twelve regulatory bodies throughout the United States that make upthe
+Federal Reserve System. Each Bank is given power over commercial andsavings
+banks in its area and is charged with making sure that those bankscomply with
+any and all rules and regulations.</P><A
+name="federal reserve bank-cleveland (frb-c)"></A>
+<P><STRONG>Federal Reserve Bank-Cleveland (FRB-C)</STRONG> - FRB-Cserves as the
+conduit for settlement of transactions originating from the OTCnetapplication.
+FRB-C is responsible for receiving the transaction data from OTCnet viaforward
+file, and performing check clearing/transaction settlement as the=91debit
+gateway'.</P><A
+name="federal reserve system's automated clearing house (ach)system"></A>
+<P><STRONG>Federal Reserve System's Automated Clearing House (ACH)
+System</STRONG> - Enables debits and credits to be sent electronicallybetween
+depository financial institutions.</P><A name="financial institution(fi)"></A>
+<P><STRONG>Financial Institution (FI)</STRONG> - A bank, designated bythe
+Treasury and a Treasury General Account (TGA) of International TreasuryGeneral
+Account (ITGA), which collects funds to be deposited in the TreasuryGeneral
+Account. These banks also include the Federal Reserve Bank (FRB).</P><A
+name="financial institution information"></A>
+<P><STRONG>Financial Institution Information</STRONG> - The name,address,
+routing transit number, and the demand deposit account number of afinancial
+institution.</P><A name="financial management service (fms)"></A>
+<P><STRONG>Financial Management Service (FMS)</STRONG> - The bureau ofthe
+United States Department of Treasury that provides central paymentservices to
+federal agencies, operates the federal government's collections anddeposit
+systems, provides government wide accounting and reporting services, andmanages
+the collection of delinquent debt owed to the government.</P><A
+name=firmware></A>
+<P><STRONG>Firmware</STRONG> - A release used for initial download orupgrades
+to the scanner software that allows a scanner to be used on a terminal.The
+firmware versions also contain a series of other back-end installationfiles
+that should be installed on a terminal to enable it to be used for CheckCapture
+in OTCnet.</P><A name="fiscal year"></A>
+<P><STRONG>Fiscal Year</STRONG> - A 12-month period for which anorganization
+plans the use of its funds.</P><A name="fms statistical report"></A>
+<P><STRONG>FMS Statistical Report</STRONG> - A check processingadministration
+report that allows you to view statistical details for an OTC Endpoint.The
+report includes statistical information regarding the totaltransactions,
+overall success rate, total returns sent back to the agency, and totalreturns
+received. The report is available for 15 rolling days.</P><A
+name="forwarded batch status"></A>
+<P><STRONG>Forwarded Batch Status</STRONG> - Indicates the batch hasbeen sent
+to Debit Gateway to initiate the settlement process.</P><A
+name="forwarded file"></A>
+<P><STRONG>Forwarded File</STRONG> - A term that is assigned to a filethat
+contains the check transactions that is send from channel applications,such as
+OTCnet or ECP, to Debit Gateway for settlement purposes.</P><Aname=franker></A>
+<P><STRONG>Franker</STRONG> - An internal stamp unit that stamps a checkwith
+"Electronically Processed" after the check is processed and scanned.Franker
+availability is based on the model of your scanner.</P><Aname=franking></A>
+<P><STRONG>Franking</STRONG> - The process of stamping a check processedthrough
+Check Capture. The stamp indicates that the check was electronically
+processed.</P>
+<P><A href="#top">Return to top</A> </P>
+<P><A name=H></A>H</P><A name="highest levelorganization"></A>
+<P><STRONG>Highest Level Organization</STRONG> - The primary level ofthe
+organization hierarchy.</P>
+<P><A href="#top">Return to top</A> </P>
+<P><A name=I></A>I</P><A
+name="ibm tivoli identity manager (itim)"></A>
+<P><STRONG>IBM Tivoli Identity Manager (ITIM)</STRONG> - Refers toFMS's
+Enterprise provisioning tool for user account and identitymanagement.</P><A
+name="individual reference number (irn)"></A>
+<P><STRONG>Individual Reference Number (IRN)</STRONG> - Theauto-generated
+unique number used in OTCnet to identify Check Capturetransactions.</P><A
+name="input length maximum"></A>
+<P><STRONG>Input Length Maximum</STRONG> - The maximum number ofcharacters that
+may be entered in a user defined field.</P><A name="input lengthminimum"></A>
+<P><STRONG>Input Length Minimum</STRONG> - The minimum number ofcharacters that
+may be entered in a user defined field.</P><A
+name="internal control number"></A>
+<P><STRONG>Internal Control Number</STRONG> - A customizable field foragency
+use to further describe a deposit.</P><A name="item detailreport"></A>
+<P><STRONG>Item Detail Report</STRONG> - A report that contains theinformation
+about an individual item (check) associated with a batch. The reportprint-out
+will contain MICR information, data entered about the check, and animage of the
+check obtained during scanning. </P><A name="item type"></A>
+<P><STRONG>Item Type</STRONG> - Indicates whether the check presented isa
+personal or business check. This determines whether the check is handledthrough
+Check 21 (non-personal) or FedACH (personal).</P>
+<P><A href="#top">Return to top</A> </P>
+<P><A name=L></A>L</P><A name="local accountingspecialist"></A>
+<P><STRONG>Local Accounting Specialist</STRONG> - A user who is anexpert on the
+organizational structure, reporting needs and accounting rules for their
+depositing endpoint and its lower level OTC Endpoints. This role willestablish
+and maintain the organizational structure, accounting code mappings to
+individual endpoints and the processing options that one or more lowerlevel OTC
+Endpoints will use in OTCnet.</P><A
+name="local security administrator (lsa)"></A>
+<P><STRONG>Local Security Administrator (LSA)</STRONG> - An agency orfinancial
+institution/federal reserve bank user who has authorization to maintainuser
+access to an organization, including assigning/removing user roles and
+assigning/removing organization hierarchy access. This user is also ableto
+request and create users for the organization.</P><A
+name="local verification database (lvd)"></A>
+<P><STRONG>Local Verification Database (LVD)</STRONG> - A database(specific to
+the endpoint using OTCnet) that is downloaded from OTCnet and storedlocally on
+the agencies network, which replicates the information found in theMaster
+Verification Database (MVD).</P><A name="lower levelorganization"></A>
+<P><STRONG>Lower Level Organization</STRONG> - Any organization createdbelow
+the highest level organization.</P><A name="lvd contents report"></A>
+<P><STRONG>LVD Contents Report</STRONG> - A check processing businessreport
+that allows you to view the contents of a Local Verification Database(LVD) for
+a given OTC Endpoint.</P>
+<P><A href="#top">Return to top</A> </P>
+<P><A name=M></A>M</P><A
+name="magnetic ink character recognition (micr)"></A>
+<P><STRONG>Magnetic Ink Character Recognition (MICR)</STRONG> - Digital
+characters on the bottom edge of a paper check containing the issuingbank's ABA
+number and account number. The check number may also be included. </P><A
+name="master verification database (mvd)"></A>
+<P><STRONG>Master Verification Database (MVD)</STRONG> - It is an online
+database specific to the agency that maintains the agency hierarchycheck
+cashing policy, information on bad check writers, and manually enteredblocked
+items based on an agency's policy. Bad check information is accumulatedin the
+MVD as agencies process checks through Check Capture. The MVD providesdownloads
+of dishonored check information and blocked items via the LocalVerification
+Database (LVD) on a daily basis. </P><A name="mvd editor"></A>
+<P><STRONG>MVD Editor</STRONG> - A user that has the authorization toview,
+edit, and download CIRA records, view verification records, and readblocked
+records containing only ABA permissions. </P><A name="mvd viewer"></A>
+<P><STRONG>MVD Viewer</STRONG> - A user that has the authorization toview and
+download CIRA records, view verification records, and read blockedrecords
+containing only ABA permissions. </P>
+<P><A href="#top">Return to top</A> </P>
+<P><A name=N></A>N</P><A name="non-personal itemtype"></A>
+<P><STRONG>Non-Personal Item Type</STRONG> - Indicates that the name oncheck is
+an organization, or that the check is a money order, traveler's check,or
+third-party check.</P><A name="non-reporting otc endpointsreport"></A>
+<P><STRONG>Non-Reporting OTC Endpoints Report</STRONG> - A businessreport that
+allows you to view OTC Endpoints that have not reported a deposit. </P>
+<P><A href="#top">Return to top</A> </P>
+<P><A name=O></A>O</P><A name="open batch status"></A>
+<P><STRONG>Open Batch Status</STRONG> - Indicates the batch is open and
+accepting new checks.</P><A name=organization></A>
+<P><STRONG>Organization</STRONG> - The location or level within aFederal
+Program Agency.</P><A name="organization hierarchy"></A>
+<P><STRONG>Organization Hierarchy</STRONG> - The structure of a FederalProgram
+Agency as defined in OTCnet.</P><A name="organization hierarchyreport"></A>
+<P><STRONG>Organization Hierarchy Report</STRONG> - A check processingbusiness
+report that allows you to view the target OTC Endpoint within thecontext of the
+current OTC Endpoint. <A name="otc collections"></A>
+<P><STRONG>OTC Collections</STRONG> - Receipts that contain cash,checks, and/or
+money orders that are collected over-the-counter by organizationendpoints in
+exchange for goods or services.</P><A name="otc endpoint"></A>
+<P><STRONG>OTC Endpoint</STRONG> - The endpoint (location) that collects
+over-the-counter (OTC) receipts and deposits them to the Treasury'sGeneral
+Account.</P><A name="otc endpoint (chk)"></A>
+<P><STRONG>OTC Endpoint (CHK)</STRONG> - The endpoint (location) setupin OTCnet
+to use check capture.</P><A name="otc endpoint (tga)"></A>
+<P><STRONG>OTC Endpoint (TGA)</STRONG> - The endpoint (location) setupin OTCnet
+to use Deposit Reporting. </P><A name="otc endpoint mapping"></A>
+<P><STRONG>OTC Endpoint Mapping</STRONG> - The assignment of accountingcodes to
+an agency's OTC Endpoint, for which a deposit amount can be allocated.</P><A
+name="otcnet offline"></A>
+<P><STRONG>OTCnet Offline</STRONG> - Refers to the over the counterapplication
+that provides Check Capture functionality to end users with limitedinternet
+activity, and provides the capability to upload offline-captured batchesto the
+Online OTCnet application for processing.</P><A name="otcnetonline"></A>
+<P><STRONG>OTCnet Online</STRONG> - Refers to the web-based over thecounter
+application that provides Check Capture, Check Processing and DepositProcessing
+functions to end users (that have constant internet activity). </P><A
+name="over the counter channel application (otcnet)"></A>
+<P><STRONG>Over the Counter Channel Application (OTCnet)</STRONG> -Refers to
+the over the counter application that provide Check Capture and Deposit
+Reporting to end users.</P>
+<P><A href="#top">Return to top</A> </P>
+<P><A name=P></A>P</P><A name="personal itemtype"></A>
+<P><STRONG>Personal Item Type</STRONG> - Indicates that the name oncheck is an
+individual's name, not acting as a business.</P>
+<p><strong>Purge</strong> - In compliance with Fiscal Service records retention policy and the ISS 3-year Cybersecurity Plan, all OTCnet transactional data older than 7 years will be purged to minimize the risk of exposing PII data that does not need to be stored.  All check, deposit, voucher event log, audit log, and image data will be purged except for data originating from the Department of the Interior (DOI) which will be retained indefinitely due to litigation reasons.</p>
+<ul>
+	<li>Purge all non-Department of Interior check transactional data including associated check image data more than 7.5 years old (90 months) based on previous month </li>
+	<li>Purge all non-Department of Interior deposit data with more than 7 years old.</li>
+	<li>Exempt ALCs are setup in <strong>Litigation_ALC</strong> table </li>
+	<li>Query filter for eligible data older than 10/10.5 years from the previous month<br/> 
+		BP.RECEIVED_TS < ADD_MONTHS(LAST_DAY(TRUNC(SYSDATE)) + 1, -127)); <br/>
+		dh.voucher_dt < ADD_MONTHS (LAST_DAY (TRUNC (SYSDATE)) + 1, -121)
+	</li>
+</ul>
+<P><A name=Q></A>Q</P><A name="personal itemtype"></A>
+<P><STRONG>Queue Interface</STRONG> - Used by military agencies thatutilize the
+Deployable Disbursing System (DDS) database bridge. It provides a single
+transaction input point, prevents data entry errors, and discrepancybetween
+both systems.</P>
+<P><A href="#top">Return to top</A> </P><A name="primary local security administrator(plsa)"></A>
+<P><STRONG>Primary Local Security Administrator (PLSA) </STRONG>- Anagency or
+financial institution/federal reserve bank user who has authorization to
+maintain user access to an organization, including assigning/removinguser roles
+and assigning/removing organization hierarchy access. This user is alsoable to
+request and create users for the organization.</P><A
+name="processing options"></A>
+<P><STRONG>Processing Options</STRONG> - User-defined parameters for thedeposit
+and adjustment processes.</P><A
+name="processing options by otc endpoints report"></A>
+<P><STRONG>Processing Options by OTC Endpoints Report</STRONG> - Abusiness
+report that allows you to view processing options defined for endpointswithin
+the organization. </P>
+<P><A href="#top">Return to top</A> </P>
+<P><A name=R></A>R</P><A name=received></A>
+<P><STRONG>Received</STRONG> - The agency has sent this transactionthrough
+OTCnet. No settlement has been performed for this transaction yet.</P><A
+name="received date"></A>
+<P><STRONG>Received Date</STRONG> - The date the check was received byweb-based
+OTCnet. </P><A name=rejected></A>
+<P><STRONG>Rejected</STRONG> - A deposit that is returned by a financial
+institution or FRB to the Deposit Preparer to create a newdeposit.</P><A
+name=represented></A>
+<P><STRONG>Represented</STRONG> - This transaction was returned with areason
+code that allows for another collection attempt to be made (see AppendixChapter
+of the Participant User Guides for Reason Codes). Depending on anagency's
+policy, the item is reprocessed in an attempt to collect the funds fromthe
+check writer. Items with this status are in-process of collection.</P><A
+name=retired></A>
+<P><STRONG>Retired</STRONG> - This transaction was unable to becollected. The
+agency receives an SF5515 Debit Voucher Report with a debit processed toDebit
+Gateway, the effective date and debit voucher number. The offset to theagency's
+debit is an ACH return or a paper return (Check 21) received from thecheck
+writer's financial institution. This transaction cannot be processedagain
+through OTCnet.</P><A name="return reason codes"></A>
+<P><STRONG>Return Reason Codes</STRONG> - Represent the numeric codesused in
+the ACH and paper return processing, which specify the reason for thereturn of
+the transaction and Check 21 codes. </P><A name="return settlementdate"></A>
+<P><STRONG>Return Settlement Date</STRONG> - The effective date ofsettlement of
+the returned check item.</P><A name="returned item"></A>
+<P><STRONG>Returned Item</STRONG> - A check that was originally part ofan
+OTCnet deposit but returned to the financial institution fornon-sufficient
+funds, closed account, etc.</P><A name="routing transit number(rtn)"></A>
+<P><STRONG>Routing Transit Number (RTN)</STRONG> - (also known asAmerican
+Bankers Association (ABA) Number or Bank Routing Number) - Thenine-digit number
+used to identify a Financial Institution.</P>
+<P><A href="#top">Return to top</A> </P>
+<P><A name=S></A>S</P><A name="save as draft"></A>
+<P><STRONG>Save as Draft</STRONG> - An option that allows a DepositPreparer to
+save a deposit for modification at a later date.</P><A
+name="save for approval"></A>
+<P><STRONG>Save for Approval</STRONG> - An option that allows a DepositPreparer
+to save a deposit for a Deposit Approver to submit to a financial
+institution.</P><A name="send error batch status"></A>
+<P><STRONG>Send Error Batch Status</STRONG> - Indicates the batch was
+transmitted and fully processed by the OTCnet server withouterror.</P><A
+name="sent batch status"></A>
+<P><STRONG>Sent Batch Status</STRONG> - Indicates the batch was uploadedonline
+without error.</P><A name="separation of duties"></A>
+<P><STRONG>Separation of Duties</STRONG> - A concept used to ensurethere are
+typically separate personnel with authority to authorize a transaction,process
+the transaction, and review the transaction.</P><A
+name="settle best method"></A>
+<P><STRONG>Settle Best Method</STRONG> - The option that allows OTCnetto decide
+the best settlement method for personal and non-personal checks.</P><A
+name=settled></A>
+<P><STRONG>Settled</STRONG> - This transaction is complete and the fundshave
+been credited to the agency's Treasury General Account. The effectivedate of
+the deposit and the SF215 Deposit Ticket Report deposit ticket numberare
+provided.</P><A name="settlement date"></A>
+<P><STRONG>Settlement Date</STRONG> - The date the deposit is creditedto the
+Treasury General Account.</P><A name="SF215 deposit ticketreport"></A>
+<P><STRONG>SF215 Deposit Ticket Report </STRONG>- The report presentedto a
+financial institution by a U.S. government agency with checks and otherpayment
+instruments to make a manual deposit. This report is manually generatedfor
+Deposit Reporting and auto-generated for Check capture. The report isavailable
+in OTCnet for 45 calendar days.</P><A name="SF5515 debit voucherreport"></A>
+<P><STRONG>SF5515 Debit Voucher Report </STRONG>- The report used todebit the
+Treasury General Account (TGA) to decrease the amount of a deposit madeto that
+account. This report is manually generated for Deposit Reporting and
+auto-generated for Check capture. The report is available in OTCnet for45
+calendar days.</P><A name="share accounting module (sam)"></A>
+<P><STRONG>Share Accounting Module (SAM)</STRONG> - The application that
+facilitates the process of validating or deriving Treasury AccountSymbol (TAS)
+and Business Event Type Code (BETC) combinations to assist CARS/GWA in
+classifying financial transactions as they occur. Managed by Federal Reserve Bank of St. Louis.</P><A
+name="short name/code"></A>
+<P><STRONG>Short Name/Code</STRONG> - The user-defined text describingan
+organization. Short Names/Codes must be unique within an organization
+hierarchy.</P><A name=submit></A>
+<P><STRONG>Submit</STRONG> - An option that allows a Deposit Approver tosubmit
+a deposit to a financial institution.</P><A name=submitted></A>
+<P><STRONG>Submitted</STRONG> - A deposit that is submitted and waitingdeposit
+confirmation by a Deposit Confirmer.</P><A name=suspend></A>
+<P><STRONG>Suspend</STRONG> - Indicates that an individual's record isset to a
+predetermined suspension period. During this time, OTCnet prevents anindividual
+from processing a check through OTCnet. The individual's database recordhas a
+Trade Status of Suspend and the expiration date is set until a specific
+date.</P>
+<P><A href="#top">Return to top</A> </P>
+<P><A name=T></A>T</P><A name="terminal id"></A>
+<P><STRONG>Terminal ID</STRONG> - The unique number assigned to theworkstation
+where a user performs functions in OTCnet.</P><A name="tradestatus"></A>
+<P><STRONG>Trade Status</STRONG> - Represents the status of theverification
+records. There are four 4 possible trade statuses in the system:Blocked,
+Denied, Suspended, and Cleared. The Trade Status D-Suspended or D-Deniedis
+assigned to auto generated Dynamic records.</P><A
+name="transaction history"></A>
+<P><STRONG>Transaction History</STRONG> - Defines the time range that aDeposit
+Confirmer will be able to view the historical deposit transactions forhis or
+her financial institutions. For example, if the transaction history isset at 45
+days, the Deposit Confirmer will be able to view all the deposits thathe or she
+has confirmed for the past 45 days.</P><A
+name="treasury account symbol (tas)"></A>
+<P><STRONG>Treasury Account Symbol (TAS)</STRONG> - The receipt,expenditure,
+appropriation, and other fund account symbols and titles as assigned by
+Treasury.</P>
+<P><A href="#top">Return to top</A> </P>
+<P><A name=U></A>U</P><A name="universal serial bus(usb)"></A>
+<P><STRONG>Universal Serial Bus (USB)</STRONG> - A connection port on acomputer
+that is universally compatible with many types of devices, such asprinters,
+speakers, mouse, flash drives, etc. </P><A
+name="us dollar equivalent (use)"></A>
+<P><STRONG>US Dollar Equivalent (USE)</STRONG> - The deposit amount, inUnited
+States currency, which is equal to the foreign currency for which it isbeing
+exchanged.</P><A name="us treasury"></A>
+<P><STRONG>US Treasury</STRONG> - The executive department and theTreasury of
+the United States federal government.</P><A name="user defined field(udf)"></A>
+<P><STRONG>User Defined Field (UDF)</STRONG> - A user-defined text that
+describes deposit activity or deposit accounting activity.</P><A
+name="user information report"></A>
+<P><STRONG>User Information Report</STRONG> - A security report allowsthat you
+to view a user's contact information.</P><A
+name="users by access group (fi) report"></A>
+<P><STRONG>Users by Access Group (FI) Report</STRONG> - A securityreport that
+allows you to view users by financial institution</P><A
+name="users by access group (fpa) report"></A>
+<P><STRONG>Users by Access Group (FPA) Report</STRONG> - A securityreport that
+allows you to view users by OTC Endpoint.</P><A
+name="users by role (fi) report"></A>
+<P><STRONG>Users by Role (FI) Report</STRONG> - A security report thatallows
+you to view users by role for your financial institution.</P><A
+name="users by role (fpa) report"></A>
+<P><STRONG>Users by Role (FPA) Report</STRONG> - A security report thatallows
+you to view users by role for your OTC Endpoint.</P>
+<P><A href="#top">Return to top</A> </P>
+<P><A name=V></A>V</P><A
+name="view ca$hlink ii file status report"></A>
+<P><STRONG>View CA$HLINK II File Status Report</STRONG> - Anadministration
+report that allows you to view status of deposit report files that havebeen
+processed by CA$HLINK II or are ready for CA$HLINK II to process. </P><A
+name="view frb ca$hlink file status report"></A>
+<P><STRONG>View FRB CA$HLINK File Status Report</STRONG> - Anadministration
+report allows you to view the status of deposit files that have beensent to FRB
+CA$HLINK. </P><A name="view trs file status report"></A>
+<P><STRONG>View TRS File Status Report</STRONG> - An administrationreport
+allows you to view the status of TRS files that have been processed by
+Transaction Reporting System (TRS) or are ready for TRS to process.</P><A
+name="view vouchers completed report"></A>
+<P><STRONG>View Vouchers Completed Report</STRONG> - An administrationreport
+allows you to view the status of deposit and adjustment vouchers thathave
+completed processed through the FI System To System Interface in thepast 36
+hours. </P><A name="view vouchers in progress report"></A>
+<P><STRONG>View Vouchers in Progress Report</STRONG> - An administrationreport
+allows you to view the status of deposit and adjustment vouchers inprogress.
+</P><A name=viewer></A>
+<P><STRONG>Viewer</STRONG> - A user who has authorization to view OTCnet
+information and produce reports from it.</P><A name="voucherdate"></A>
+<P><STRONG>Voucher Date</STRONG> - The Financial Institution businessdate a
+deposit will be presented or the calendar date the deposit will bemailed to the
+financial institution.</P><A name="voucher number"></A>
+<P><STRONG>Voucher Number</STRONG> - The number assigned to a deposit by
+OTCnet.</P>
+<P><A href="#top">Return to top</A> </P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P></DIV>
+
+
+{% endblock %}
