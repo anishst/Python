@@ -84,6 +84,10 @@ class CommonOperations:
         import random
         return random.randrange(lowNum,highNum)
 
+    def SecretKeyGenerator(self,len):
+        """Returns random text in hexadecimal format"""
+        import secrets
+        return secrets.token_hex(len)
     # *******************************************************************************************************************
     # Utility functions
     # *******************************************************************************************************************
