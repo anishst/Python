@@ -3,9 +3,9 @@ from PIL import Image
 import os
 myFramework =  CommonOperations()
 
-thumb_size=(250,250)
+thumb_size=(1000,1000)
 
-srcDir = r'C:\Temp\Images'
+srcDir = r'E:\My Pictues\2012'
 
 for root, dirnames, filenames in os.walk(srcDir):
 		imgFiles = ['.jpg','.jpeg', '.png', '.gif']
@@ -25,6 +25,8 @@ for root, dirnames, filenames in os.walk(srcDir):
 					print("Resized file {} saved to: {}".format(new_fileName,root))
 				except Exception as e:
 					print("there was an issue with {}. Details: {}".format(file,e))
+				finally:
+					img.close()
 
 				
 
