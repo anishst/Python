@@ -138,6 +138,24 @@ class CommonOperations:
         backupDir = os.path.join(dest, datetime.now().strftime('%Y-%m-%d_%H-%M-%S'))
         shutil.copytree(source, backupDir)
         print("Backup is complete!")
+
+    def ScanDirectory(self, srcDir, fileTypes=None):
+        """Scans given directory and returns file paths
+        if fileTypes provideds applies that filter"""
+        
+        import os
+        fileList = []
+        for root, dirnames, filenames in os.walk(srcDir):
+
+            for file in filenames:
+                filename, ext = os.path.splitext(file)
+                if fileTypes != None:
+                    if ext.lower() in fileTypes:
+                        fileList.append(os.path.join(root,file))
+                else:
+                    fileList.append(os.path.join(root,file))
+
+        return fileList                  
         
     # *******************************************************************************************************************
     # Text Search Functions
