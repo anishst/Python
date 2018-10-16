@@ -231,6 +231,14 @@ class CommonOperations:
          # Print total files and directory count
         print('\nFound {} files in {} directories.'.format(file_count,dir_count)) 
 
+    def FindDuplicates(self, listItems):
+        """This list accepts a list and returns duplicate values in the list"""
+        duplicates = []
+        duplicates = set([x for x in listItems if listItems.count(x) > 1])
+        return list(duplicates)
+
+
+
 class ImageFormatting:
     """ This class contains methods to deal with images
 
