@@ -2,8 +2,8 @@ from ATSFramework import CommonOperations
 import os
 sc = CommonOperations()
 
-srcDir = r'Y:\SeleniumSetup'
-flist = sc.ScanDirectory(srcDir, fileTypes=['.exe', '.txt'])
+srcDir = r'H:\My Pictues\2008\Auto Show'
+flist = sc.ScanDirectory(srcDir, fileTypes=['.jpg', '.txt'])
 
 for i in flist:
 	print(i)
