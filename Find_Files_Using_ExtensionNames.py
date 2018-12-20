@@ -1,5 +1,5 @@
 
-path= r"Y:\Automation 2.0\ALM\Stability"
+path= r"Y:\Automation 2.0\ALM\Regression"
 
 filesToFind = ['.usr'] # provide extension to look for
 
@@ -12,7 +12,8 @@ for root, dirnames, filenames in os.walk(path):
 		# split filename and extension
 		filename, ext = os.path.splitext(file)
 		if ext.lower() in filesToFind:
-			print(f"Folder: {root}  \nFileName: {file}")
+			print(f"{root}\t {file}") 
+			# print(f"FileName: {file}")
 			scriptNames.append(file)
 
 print(f"Found {len(scriptNames)} scripts ")
