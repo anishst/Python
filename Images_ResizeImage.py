@@ -5,7 +5,7 @@ myFramework =  CommonOperations()
 
 thumb_size=(1000,1000)
 
-srcDir = r'E:\My Pictues\2012'
+srcDir = r'H:\My Pictues\New Home'
 
 for root, dirnames, filenames in os.walk(srcDir):
 		imgFiles = ['.jpg','.jpeg', '.png', '.gif']
