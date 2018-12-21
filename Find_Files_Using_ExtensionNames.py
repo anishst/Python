@@ -12,8 +12,9 @@ for root, dirnames, filenames in os.walk(path):
 		# split filename and extension
 		filename, ext = os.path.splitext(file)
 		if ext.lower() in filesToFind:
-			print(f"{root}\t {file}") 
+			# print(f"{root}\t {file}") 
 			# print(f"FileName: {file}")
+			print(file)
 			scriptNames.append(file)
 
 print(f"Found {len(scriptNames)} scripts ")
