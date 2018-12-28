@@ -92,6 +92,11 @@ class CommonOperations:
     # Utility functions
     # *******************************************************************************************************************
 
+    def get_line_count(self, filename):
+        """returns total number of lines in the provided text file"""
+        num_lines = sum(1 for line in open(filename, 'rb'))
+        return num_lines
+
     def AppendToTextFile(self,filename, value):
         """This functin writes data to an existing file."""
         f = open(filename,"a") 
