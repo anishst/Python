@@ -4,7 +4,6 @@ import os, time
 
 top = r'C:\Temp\SeleniumPythonFramework'
 
-import os
 for dirpath, dirnames, filenames in os.walk(top):
 	print(f"Checking Folder: {dirpath}")
 	folder_path = dirpath
