@@ -3,7 +3,6 @@
 def get_line_count(filename):
         """returns total number of lines in the provided text file"""
         num_lines = sum(1 for line in open(filename, 'rb'))
-        print(num_lines)
         return num_lines
 
 fileTypes = ['.py']
@@ -17,7 +16,7 @@ for root, dirnames, filenames in os.walk(folder_path):
         if fileTypes != None:
             if ext.lower() in fileTypes:
                 num_of_lines = get_line_count(os.path.join(root,file))
-                print(f"File {file} contains {num_of_lines} of code")
+                print(f"File {file} contains {num_of_lines} lines of code")
                 line_count += num_of_lines
         else:
             pass

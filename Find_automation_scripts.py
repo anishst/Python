@@ -1,14 +1,10 @@
-import os
-
-path= r"C:\Users\532975\Documents\Automation\SeleniumPythonFramework\tests\Stability"
-
-filesToFind = ['.usr'] # provide extension to look for
 """
 This script searches for files with specified extensions and 
 displays the folder name and file name and count
 
 """
-# path= r"H:\My Pictues\2008"		# provide location of files
+import os
+path= r"H:\My Pictues\2008"		# provide location of files
 filesToFind = ['.py'] 			# provide extension to look for
 
 filesFound = []
