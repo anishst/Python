@@ -1,6 +1,9 @@
 # Author: Anish Sebastian
 # Functions to work with Python Modules
 # =============================================================================================
+from datetime import datetime
+
+
 class HtmlFL:
     """ This class contains methods to deal with formatting output in HTML"""
     def __init__(self):
@@ -26,7 +29,7 @@ class HtmlFL:
     def GetHTML(self, url):
         import requests
         from bs4 import BeautifulSoup
-        r = requests.get(url)
+        r = requests.get(url, verify=False)
         soup = BeautifulSoup(r.content, "html.parser")
         return soup.prettify()
 
