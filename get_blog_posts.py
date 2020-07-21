@@ -1,8 +1,9 @@
+import os
 from selenium import webdriver
-
-
+from ATSFramework import EmailFL
 
 driver = webdriver.Chrome()
+message = f"""Here is your Weekly Digest from Test Blogs. This was generated from a Python script:{os.path.basename(__file__)}<br/><ul>"""
 
 #  list of sites and xpath to latest article links
 blog_list = [
@@ -14,17 +15,19 @@ blog_list = [
 ]
 
 for item in blog_list:
-
     url, xpath = item.split(',')
-    print(url)
-    driver.get(url)
-    print(xpath)
-    links = driver.find_elements_by_xpath(xpath)
-    #  get link text
-    print([link.text for link in links ])
-    print([f"""<a href="{str(link.get_attribute('href'))}">{str(link.text)}</a>""" for link in links])
-    # get url
-    print([link.get_attribute('href') for link in links])
+    try:
+        driver.get(url)
+        links = driver.find_elements_by_xpath(xpath)
+        message += f"{url}<ul>"
+        for link in links:
+            message += f"""<li style='margin-bottom:5px;'><a href="{link.get_attribute('href')}">{link.text}</a></li>"""
+        message += "</ul>"
+    except:
+        print(f"Something went wrong while scraping {url} ")
 
+print(message)
 
+#  send email
+EmailFL.send_email_gmail([os.getenv('GMAIL_ID')], "My Weekly Test Blog Digest", message)
 driver.quit()

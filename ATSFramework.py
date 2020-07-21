@@ -1,7 +1,17 @@
 # Author: Anish Sebastian
 # Functions to work with Python Modules
 # =============================================================================================
+import csv
+import os
+import time
 from datetime import datetime
+
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
+from selenium.common.exceptions import *
 
 
 class HtmlFL:
@@ -333,3 +343,512 @@ class PandasFL:
     """
     def __init__(self):
         pass
+
+class EmailFL:
+    """Email related methods"""
+
+    @staticmethod
+    def send_email_gmail(recipients, subject, message):
+        """
+        This function emails the message provided using provided parameter values - UNDER DEV
+        :param recipients: list of email addresses
+        :param subject: email subject
+        :param message: email message in HTML format
+        :return: None
+        """
+        try:
+            import smtplib
+            from email.mime.multipart import MIMEMultipart
+            from email.mime.text import MIMEText
+
+            # GMAIL user info
+            GMAIL_USER =  os.getenv('GMAIL_ID')
+            GMAIL_PASS = os.getenv('GMAIL_PWD')
+            SMTP_SERVER = 'smtp.gmail.com'
+            SMTP_PORT = 587
+            msg = MIMEMultipart()
+            msg['Subject'] = subject
+            msg['From'] = GMAIL_USER
+            msg['To'] = ", ".join(recipients)
+            body = message
+            msg.attach(MIMEText(body, 'html'))
+            smtpserver = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
+            smtpserver.starttls()
+            smtpserver.login(GMAIL_USER, GMAIL_PASS)
+            print("Logged in")
+            smtpserver.send_message(msg)
+            smtpserver.close()
+            print(f"Email has been sent successfully to {recipients}")
+        except Exception as e:
+            print(f"There was an issue with emailing results: {e}")
+
+
+
+TIME_OUT = 30
+
+class SeleniumFL:
+    """Selenium related """
+
+    def __init__(self, driver):
+        """Initializes the base page class and inherits from Selenium driver and Util class"""
+        self.driver = driver
+
+
+    def get_title(self):
+        """Returns title of the current page"""
+        return self.driver.title
+
+    def get_current_url(self):
+        """Returns URL of the current page"""
+        return self.driver.current_url
+
+    def get_element(self, locatorType, locator):
+        """ Returns the element using provided locator and locatorytype"""
+        element = None
+        try:
+            element = WebDriverWait(self.driver, TIME_OUT).until(EC.element_to_be_clickable((locatorType, locator)))
+            self.log.info(f"Element found with locator: {locator}")
+            return element
+        except Exception as e:
+            self.log.error(f"Element was not found with locator: {locator}. Exception: {e}")
+
+    def get_elements(self, locatorType, locator):
+        """ Returns list of elements using provided locator and locatorytype"""
+        elements = None
+        try:
+            elements = WebDriverWait(self.driver, TIME_OUT).until(
+                EC.presence_of_all_elements_located((locatorType, locator)))
+            self.log.info(f" {len(elements)} Elements found with locator: {locator}")
+            return elements
+        except Exception as e:
+            self.log.error(f"Elements was not found with locator: {locator}. Exception: {e}")
+            return None
+
+    def get_text(self, locatorType, locator):
+        """ Returns the text of the element provided locator and locatorytype"""
+        element = None
+        try:
+            self.util.sleep(1)
+            element = WebDriverWait(self.driver, TIME_OUT).until(EC.presence_of_element_located((locatorType, locator)))
+            self.log.info(f"Element found with locator: {locator} with text {element.text}")
+
+            return element.text
+        except Exception as e:
+            self.log.error(f"Element was not found with locator: {locator}. Exception: {e}")
+            return None
+
+    def element_click(self, locatorType, locator):
+        """
+		clicks on the element using locator and locatorytype values provided
+		"""
+        try:
+            element = self.get_element(locatorType, locator)
+            # adding a wait before clicking on elements to resolve issues seen with chrome driver
+            self.util.sleep(1, "before clicking on element")
+            element.click()
+            self.log.info(f"Clicked on element with locator: {locator} and locatorType: {locatorType}")
+        except Exception as e:
+            self.log.error(
+                f"Cannot click on element with locator: {locator} and locatorType: {locatorType}. Exception: {e}")
+
+    def sendKeys(self, data, locatorType, locator, clearField=True):
+        """this function will send data provided to a field using  locator and locatoryType values; clearField = optional field;
+		By default, it will clear the fields before sending data
+		"""
+        try:
+            element = self.get_element(locatorType, locator)
+            if clearField:
+                element.clear()
+            element.send_keys(data)
+            self.log.info("Sent data on element with locator: " + locator + " locatorType: " + locatorType)
+        except Exception as e:
+            self.log.error("Cannot send data on element with " + locator + " locatorType: " + locatorType + str(e))
+
+    def is_element_visible(self, locatorType, locator):
+        """
+		Return the visibility state of an element; True if visible; False if not visible
+		"""
+        try:
+            element = WebDriverWait(self.driver, TIME_OUT).until(
+                EC.visibility_of_element_located((locatorType, locator)))
+            if element is not None:
+                self.log.info(f"Element: {locator} is visible")
+                return True
+            else:
+                self.log.error(f"Element: {locator}is NOT visible")
+                return False
+        except Exception as e:
+            self.log.info(f"Element: {locator} is NOT visible; Error Details {e}")
+            return False
+
+    def is_element_clickable(self, locatorType, locator):
+        """
+        Return the clickability state of an element; True if clickable; False if not clickable
+        """
+        try:
+            element = WebDriverWait(self.driver, TIME_OUT).until(
+                EC.element_to_be_clickable((locatorType, locator)))
+            if element is not None:
+                self.log.info(f"Element: {locator} is clickable")
+                return True
+            else:
+                self.log.error(f"Element: {locator}is NOT clickable")
+                return False
+        except Exception as e:
+            self.log.info(f"Element: {locator} is NOT clickable; Error Details {e}")
+            return False
+
+    def wait_for_element(self, locatorType, locator, timeout=TIME_OUT, poll_frequency=0.5):
+        """wait for element; currently not being used"""
+        element = None
+        try:
+            byType = self.getByType(locatorType)
+            print("Waiting for a maximum :: " + str(timeout) +
+                  " :: seconds for element to be clickable")
+            wait = WebDriverWait(self.driver, TIME_OUT, poll_frequency=poll_frequency,
+                                 ignored_exceptions=[NoSuchElementException,
+                                                     ElementNotVisibleException,
+                                                     ElementNotSelectableException])
+            element = wait.until(EC.element_to_be_clickable((byType,
+                                                             locator)))
+
+            print("Element appeared on the web page")
+        except:
+            print("Element did not appear on the web page!")
+        return element
+
+    def verify_element_is_enabled(self, locatorType, locator):
+        """
+        @summary:  This function checks to see if an element is enabled
+        @param locatorType: type of locator
+        @param locator: locator value
+        @return: boolean
+        """
+
+        try:
+            elm = self.get_element(locatorType, locator)
+            if elm.is_enabled() == True:
+                self.log.info(f"Element: {locator} is Enabled")
+                return True
+            else:
+                self.log.info(f"Element: {locator} is NOT Enabled")
+                return False
+        except:
+            self.log.info(f"Element: {locator} is NOT Enabled")
+            return False
+
+    def take_screenshot(self, resultMessage):
+        """
+		This functions takes a screenshot of the current open page and saves it in screenshots folder
+		"""
+        fileName = f"{self.driver.name}_{resultMessage}.{time.strftime('%m%d%Y%H%M%S')}.png"
+        screenShotDirectory = "../screenshots/"
+        relativeFileName = screenShotDirectory + fileName
+        currentDirectory = os.path.dirname(__file__)  # gives the file directory
+        destinationFile = os.path.join(currentDirectory, relativeFileName)
+        destinationDirectory = os.path.join(currentDirectory, screenShotDirectory)
+        try:
+            # if screenshots folder doesn't exist, create it
+            if not os.path.exists(destinationDirectory):
+                print(f"{destinationDirectory} was not found. Creating....")
+                os.makedirs(destinationDirectory)
+            self.driver.save_screenshot(destinationFile)
+            self.log.info(f"Screenshot saved to directory: {destinationFile}")
+        except Exception as e:
+            self.log.error(f"An exception occured while trying to save screenshot: {e}")
+            print_stack()
+
+    #  Dropdown methods
+    def get_dropdown_list_values(self, locatorType, locator):
+        """
+		This function returns a list with values of a dropdown
+		"""
+        try:
+            drop_down_element = Select(self.get_element(locatorType, locator))
+            dropdown_list_values = [option.text for option in drop_down_element.options]
+            return dropdown_list_values
+        except Exception as e:
+            self.log.error(f"There was issue with getting dropdown values using {locatorType} and {locator}: {e}")
+
+    def select_dropdown_list_value(self, value_to_select, locatorType, locator):
+        """
+		This function selects the value provide in a dropdown
+		"""
+        try:
+            drop_down_element = Select(self.get_element(locatorType, locator))
+            drop_down_element.select_by_visible_text(value_to_select)
+            self.is_element_visible(locatorType, locator)
+            drop_down_element = Select(self.get_element(locatorType, locator))
+            self.log.info(f"Selected dropdown value: {str(drop_down_element.first_selected_option.text)}")
+        except Exception as e:
+            self.log.error(f"There was issue with selecting dropdown value using using {locatorType} and {locator}: {e}")
+
+    def select_dropdown_list_value_using_index(self, locatorType, locator, index_num=0):
+        """
+        This function selects the value provide in a dropdown using index numbers
+        """
+        try:
+            drop_down_element = Select(self.get_element(locatorType, locator))
+            drop_down_element.select_by_index(index_num)
+            self.is_element_visible(locatorType, locator)
+            drop_down_element = Select(self.get_element(locatorType, locator))
+            self.log.info(f"Selected dropdown value: {str(drop_down_element.first_selected_option.text)}")
+        except Exception as e:
+            self.log.error(
+                f"There was issue with selecting dropdown value using using {locatorType} and {locator}: {e}")
+
+
+    def get_dropdown_list_length(self, locatorType, locator):
+        """
+        This function returns the number of items in a dropdown element
+        """
+        try:
+            drop_down_element = Select(self.get_element(locatorType, locator))
+            dd_length = len(drop_down_element.options)
+            self.log.info(f"Found { dd_length} items in dropdown  using {locatorType} and {locator}")
+            return dd_length
+        except Exception as e:
+            self.log.error(f"UNABLE to find length of items in dropdown  using {locatorType} and {locator}")
+            return None
+
+    def get_dropdown_list_value_selected(self,locatorType, locator):
+
+        """
+        This function returns the value currently selected in a dropdown
+        @param locatorType: type of locator
+        @param locator: locator value
+        @return: selected dropdown list value
+        """
+        try:
+            drop_down_element = Select(self.get_element(locatorType, locator))
+            current_selection = str(drop_down_element.first_selected_option.text)
+            self.log.info(f"Current selected dropdown value is: {current_selection}")
+            return current_selection
+        except Exception as e:
+            self.log.error(
+                f"There was issue with getting dropdown value using using {locatorType} and {locator}: {e}")
+            return None
+
+    def select_random_dropdown_list_value(self, locatorType, locator, start_index=0):
+        """
+        This function selects a random value of a given dropdown
+        """
+        try:
+            drop_down_element = Select(self.get_element(locatorType, locator))
+            import random
+            random_option = random.randrange(start_index, len(drop_down_element.options))
+            drop_down_element.select_by_index(random_option)
+            self.util.sleep(2)
+            drop_down_element = Select(self.get_element(locatorType, locator))
+            self.log.info(f"Selected random dropdown value: {str(drop_down_element.first_selected_option.text)}")
+        except Exception as e:
+            self.log.error(f"There was issue with selecting random dropdown value using using {locatorType} and {locator}: {e}")
+
+    def select_radio_button(self, locatorType, locator):
+        """
+		This function selects the radio element passed in
+		"""
+        elm = self.get_element(locatorType, locator)
+        if elm.is_selected() == False:
+            elm.click()
+
+    def deselect_radio_button(self, locatorType, locator):
+        """
+		This function deselects the radio element passed in
+		"""
+        elm = self.get_element(locatorType, locator)
+        if elm.is_selected() == True:
+            elm.click()
+
+    def verify_checkbox_is_enabled(self, locatorType, locator):
+        """
+		This function selects the checkbox element passed in
+		"""
+        elm = self.get_element(locatorType, locator)
+        if elm.is_selected() == True:
+            return True
+        else:
+            return False
+
+    def verify_checkbox_is_disable(self, locatorType, locator):
+        """
+        This function verifies the checkbox is disabled
+        """
+        elm = self.get_element(locatorType, locator)
+        if elm.is_selected() == False:
+            return True
+        else:
+            return False
+
+    def select_checkbox(self, locatorType, locator):
+        """
+		This function selects the checkbox element passed in
+		"""
+        try:
+            elm = self.get_element(locatorType, locator)
+            if elm.is_selected() == False:
+                elm.click()
+            self.log.info(f"checkbox was selected using {locatorType} and {locator}")
+        except:
+            self.log.error(f"There was an issue with selecting checkbox using {locatorType} and {locator}")
+
+    def deselect_checkbox(self, locatorType, locator):
+        """
+		This function deselects the checkbox element passed in
+		"""
+        try:
+            elm = self.get_element(locatorType, locator)
+            if elm.is_selected() == True:
+                elm.click()
+            self.log.info(f"checkbox was deselected using {locatorType} and {locator}")
+        except:
+            self.log.error(f"There was an issue with deselecting checkbox using {locatorType} and {locator}")
+
+    def alert_dialog_confirm(self):
+        """
+		This function Accepts confirmation dialog box
+		"""
+        try:
+            WebDriverWait(self.driver, TIME_OUT).until(EC.alert_is_present())
+            alert = self.driver.switch_to.alert
+            alert.accept()
+            self.log.info("alert accepted")
+        except TimeoutException:
+            self.log.error("alert was not found")
+
+    def alert_dialog_dismiss(self):
+        """
+		This function Dismisses confirmation dialog box
+		"""
+        try:
+            WebDriverWait(self.driver, TIME_OUT).until(EC.alert_is_present())
+            alert = self.driver.switch_to.alert
+            alert.dismiss()
+            self.log.info("alert dismissed")
+        except TimeoutException:
+            self.log.error("alert was not found")
+
+    def verify_radio_button_is_enabled(self, locatorType, locator):
+        """
+        This function verifies the radio button is enabled
+        :param locatorType:
+        :param locator:
+        """
+        elm = self.get_element(locatorType, locator)
+        if elm.is_selected() == True:
+            return True
+        else:
+            return False
+
+    def verify_radio_button_is_disabled(self, locatorType, locator):
+        """
+        This function verifies the radio button is disabled
+        :param locatorType:
+        :param locator:
+        """
+        elm = self.get_elements(locatorType, locator)
+        if elm.is_selected() == False:
+            return True
+        else:
+            return False
+
+    def verify_dropdown_listbox_is_enabled(self, locatorType, locator):
+        """
+        This function verifies the dropdown list box is enabled
+        :param locatorType:
+        :param locator:
+        """
+        elm = self.get_element(locatorType, locator)
+        if elm.is_selected() == True:
+            return True
+        else:
+            return False
+
+    def verify_dropdown_listbox_is_disabled(self, locatorType, locator):
+        """
+        This function verifies the dropdown list box is disabled
+        :param locatorType:
+        :param locator:
+        """
+        elm = self.get_element(locatorType, locator)
+        if elm.is_selected() == False:
+            return True
+        else:
+            return False
+
+    # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    #                                           TABLE Related Methods
+    # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    def table_get_row_count(self, locatorType, locator):
+        """ This will return the number of rows for the provided table"""
+        try:
+            table = self.get_element(locatorType, locator)
+            row_count = len(table.find_elements(By.TAG_NAME, 'tr'))
+            self.log.info(f"Found {row_count} rows of for {locator}")
+            return row_count
+
+        except Exception as e:
+            self.log.error(f"There was error getting the table row count for {locator}: Error Details: {e}")
+            return None
+
+    def table_get_column_count(self, locatorType, locator):
+        """ This will return the number of columns for the provided table"""
+        try:
+            th_xpath = locator + "/*/tr[1]/th"
+            td_xpath = locator + "/*/tr[1]/td"
+            if len(self.get_elements(locatorType, th_xpath)) is not None:
+                column_count = len(self.get_elements(locatorType, th_xpath))
+            else:
+                column_count = len(self.get_elements(locatorType, td_xpath))
+            self.log.info(f"Found {column_count} columns of for {locator}")
+            return column_count
+
+        except Exception as e:
+            self.log.error(f"There was error getting the table column count for {locator}: Error Details: {e}")
+            return None
+
+    def table_get_row_data_using_rownumber(self, locatorType, locator, row_number):
+        """ This will return the row data for the given row number in list format; Parameter expected is row_number;
+		Row number should start at 1"""
+        try:
+            for rows in self.get_elements(locatorType, locator + "/*/tr[" + str(row_number) + "]"):
+                #TODO: use table data function method
+                return [td.text.strip() for td in rows.find_elements_by_xpath('td')
+                        or rows.find_elements_by_xpath('th')]
+            self.log.info(f"Returned row # {row_number} data for {locator}")
+        except Exception as e:
+            self.log.error(f"Unable to return row {row_number}  for table {locator} : Error Details: {e}")
+
+    def table_get_column_data_using_colnumber(self, locatorType, locator, col_number):
+        """ This will return the column data for the given column number in list format; Parameter expected is col_number;
+		Col number should start at 1"""
+
+        try:
+            col_data = []
+            for rows in self.get_elements(locatorType, locator + "/*/tr"):
+                # TODO: use table data function method
+                data = [td.text.strip() for td in rows.find_elements_by_xpath("td[" + str(col_number) + "]") or
+                        rows.find_elements_by_xpath("th[" + str(col_number) + "]")]
+                for item in data:
+                    col_data.append(item)
+            self.log.info(f"Returned column # {col_number} data for {locator}")
+            return col_data
+
+        except Exception as e:
+            self.log.error(f"Unable to return column {col_number}  for table {locator} : Error Details: {e}")
+
+
+    def table_save_data(self, locatorType, locator, file_name):
+        """ This will return write the data for the table to the provided file in csv format"""
+        try:
+            table = self.get_element(locatorType, locator)
+            with open(file_name, 'w', newline='') as csvfile:
+                csv_writer = csv.writer(csvfile)
+                for rows in table.find_elements_by_css_selector('tr'):
+                    csv_writer.writerow([td.text.strip() for td in rows.find_elements(
+                        By.XPATH, ".//*[local-name(.)='th' or local-name(.)='td']")])
+                self.log.info(f"Wrote table data for table {locator} to file: {file_name}")
+                print(table.text)
+        except Exception as e:
+            self.log.error(f"There was error writing table data for {locator} to file: {file_name}: Error Details: {e}")
