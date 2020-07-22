@@ -10,8 +10,8 @@ blog_list = [
     "https://automationpanda.com, //article/a",
     "https://www.lambdatest.com/blog, //h2[@class='blog-titel']/a",
     "https://blog.gurock.com/, //h1[@class='entry-title']/a", # testrail
-    "https://qxf2.com/blog/, //h2[@class='excerpt-title']/a"
-
+    "https://qxf2.com/blog/, //h2[@class='excerpt-title']/a",
+    "https://medium.com/better-programming, //a[@data-post-id]"
 ]
 
 for item in blog_list:
@@ -21,6 +21,7 @@ for item in blog_list:
         links = driver.find_elements_by_xpath(xpath)
         message += f"{url}<ul>"
         for link in links:
+            # print(link.get_attribute('href'))
             message += f"""<li style='margin-bottom:5px;'><a href="{link.get_attribute('href')}">{link.text}</a></li>"""
         message += "</ul>"
     except:
