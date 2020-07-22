@@ -7,11 +7,13 @@ message = f"""Here is your Weekly Digest from Test Blogs. This was generated fro
 
 #  list of sites and xpath to latest article links
 blog_list = [
+    "https://techbeacon.com/app-dev-testing, //h2[@class='article-title']/a",
     "https://automationpanda.com, //article/a",
     "https://www.lambdatest.com/blog, //h2[@class='blog-titel']/a",
     "https://blog.gurock.com/, //h1[@class='entry-title']/a", # testrail
     "https://qxf2.com/blog/, //h2[@class='excerpt-title']/a",
     "https://medium.com/better-programming, //a[@data-post-id]"
+
 ]
 
 for item in blog_list:
