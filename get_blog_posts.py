@@ -29,7 +29,11 @@ for item in blog_list:
     except:
         print(f"Something went wrong while scraping {url} ")
 
-print(message)
+try:
+    print(message)
+except Exception as e:
+    print("Unable to print msg to screen")
+
 
 #  send email
 EmailFL.send_email_gmail([os.getenv('GMAIL_ID')], "My Weekly Test Blog Digest", message)
