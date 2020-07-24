@@ -20,7 +20,7 @@ try:
 except Exception as e:
     print(f"Something went wrong while scraping {url} {e} ")
 
-if current_rate and current_rate <= 3.29:
+if current_rate and current_rate <= 3.00:
     message = f"""
     <a href='https://www.bankrate.com/rates/interest-rates/prime-rate.aspx'>WSJ Prime Rate </a>  seems to have gone down.
     <p>Current WSJ Prime Rate: {table.text}</p>"""
