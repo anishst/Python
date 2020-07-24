@@ -8,7 +8,7 @@ driver = webdriver.Chrome()
 #  list of sites and xpath to latest article links
 url = "https://www.bankrate.com/rates/interest-rates/prime-rate.aspx"
 xpath = """//*[@id="csstyle"]/div[6]/main/div[1]/table/tbody/tr[1]/td[2]"""
-current_rate = ""
+current_rate = None
 
 try:
     driver.get(url)
@@ -20,9 +20,9 @@ try:
 except Exception as e:
     print(f"Something went wrong while scraping {url} {e} ")
 
-if current_rate <= 3.00:
+if current_rate and current_rate <= 3.29:
     message = f"""
-    <a href='https://www.bankrate.com/rates/interest-rates/prime-rate.aspx'>WSJ Prime Rate seems </a> to have gone down.
+    <a href='https://www.bankrate.com/rates/interest-rates/prime-rate.aspx'>WSJ Prime Rate </a>  seems to have gone down.
     <p>Current WSJ Prime Rate: {table.text}</p>"""
     #  send email
     EmailFL.send_email_gmail([os.getenv('GMAIL_ID')], "WSJ Mortgage Rate is at or below 3%", message)
