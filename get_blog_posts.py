@@ -13,7 +13,8 @@ blog_list = [
     "https://blog.gurock.com/, //h1[@class='entry-title']/a", # testrail
     "https://qxf2.com/blog/, //h2[@class='excerpt-title']/a",
     "https://medium.com/better-programming, //a[@data-post-id]",
-    "https://realpython.com/, //h2[@class='card-title h4 my-0 py-0']//parent::a"
+    "https://realpython.com/, //h2[@class='card-title h4 my-0 py-0']//parent::a",
+    "https://pbpython.com/, //h1/a"
 ]
 
 for item in blog_list:
