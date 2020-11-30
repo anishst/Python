@@ -14,7 +14,8 @@ blog_list = [
     "https://qxf2.com/blog/, //h2[@class='entry-title']/a",
     "https://medium.com/better-programming, //a[@data-post-id]",
     "https://realpython.com/, //h2[@class='card-title h4 my-0 py-0']//parent::a",
-    "https://pbpython.com/, //h1/a"
+    "https://pbpython.com/, //h1/a",
+    "https://testdriven.io/blog/, //h1[@class='blog-listing-heading']/a"
 ]
 
 for item in blog_list:
