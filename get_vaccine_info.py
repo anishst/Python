@@ -10,6 +10,7 @@ pd.set_option('display.max_columns', None)
 df = pd.read_csv(url)
 df = df[df.COUNTY.isin(['Fort Bend'])]
 df = df[df.CITY.isin(['Rosenberg', 'Sugar Land', 'SUGAR LAND'])]
+df.sort_values(by=['CITY'], inplace=True)
 print(df.head())
 
 message = df.to_html()
