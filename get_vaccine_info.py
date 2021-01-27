@@ -5,7 +5,7 @@ from ATSFramework import EmailFL
 url = 'https://genesis.soc.texas.gov/files/accessibility/vaccineprovideraccessibilitydata.csv'
 
 import pandas as pd
-pd.set_option('display.max_columns', None)
+pd.set_option('display.max_colwidth', None)
 
 df = pd.read_csv(url)
 df = df[df.COUNTY.isin(['Fort Bend'])]
