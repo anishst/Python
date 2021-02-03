@@ -15,7 +15,8 @@ blog_list = [
     "https://medium.com/better-programming, //a[@data-post-id]",
     "https://realpython.com/, //h2[@class='card-title h4 my-0 py-0']//parent::a",
     "https://pbpython.com/, //h1/a",
-    "https://testdriven.io/blog/, //h1[@class='blog-listing-heading']/a"
+    "https://testdriven.io/blog/, //h1[@class='blog-listing-heading']/a",
+    "https://www.deque.com/blog/,//h2/a"
 ]
 
 for item in blog_list:
