@@ -16,7 +16,8 @@ blog_list = [
     "https://realpython.com/, //h2[@class='card-title h4 my-0 py-0']//parent::a",
     "https://pbpython.com/, //h1/a",
     "https://testdriven.io/blog/, //h1[@class='blog-listing-heading']/a",
-    "https://www.deque.com/blog/,//h2/a"
+    "https://www.deque.com/blog/,//h2/a",
+    "https://python.plainenglish.io/, //a[@class='']"
 ]
 
 for item in blog_list:
@@ -26,7 +27,7 @@ for item in blog_list:
         links = driver.find_elements_by_xpath(xpath)
         message += f"{url}<ul>"
         for link in links:
-            # print(link.get_attribute('href'))
+            print(link.get_attribute('href'))
             message += f"""<li style='margin-bottom:5px;'><a href="{link.get_attribute('href')}">{link.text}</a></li>"""
         message += "</ul>"
     except:
