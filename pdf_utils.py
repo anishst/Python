@@ -86,6 +86,6 @@ def parse_pdf_using_regex(parent_folder=None, pattern=None):
     return  match_list
 # function calls
 # merge_pdfs(path = r"<insert your path>")
-# parse_pdf_using_regex(parent_folder=r'C:\Users\532975\Documents\BAH Projects\OTCnet\Review A-123 audit process\FY2021\TreasuryServicesExchange_20210521\9.96.8 2021\pdfs\temp',
+# parse_pdf_using_regex(parent_folder=r'C:\temp',
 #                       pattern=r'[\$]{1}[\d,]+\.?\d{0,2}')
-get_pdf_data(parent_folder=r'C:\Users\532975\Documents\BAH Projects\OTCnet\Review A-123 audit process\FY2021\TreasuryServicesExchange_20210521\9.96.8 2021\pdfs\temp')
+get_pdf_data(parent_folder=r'C:\temp')
