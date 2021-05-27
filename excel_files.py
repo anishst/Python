@@ -1,6 +1,20 @@
+import os
+
+import pandas as pd
+
+def combine_excel_files_to_single_df(path=None):
+    """
+    read all excel in folder and combines them into one df
+    """
+    df = pd.DataFrame()
+    for dirName, subdirs, fileList in os.walk(path):
+        for filename in fileList:
+             path = os.path.join(dirName, filename)
+             print(f"Searching file: {path}...")
+             df = df.append(pd.read_excel(path), ignore_index=True, sort=False)
+    return df
 
 def read_excel_with_pandas(filename):
-    import pandas as pd
     df = pd.read_excel(filename)
     print(df)
 

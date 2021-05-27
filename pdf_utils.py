@@ -2,7 +2,27 @@
 import os
 import re
 import fitz
-from PyPDF2 import PdfFileMerger
+from PyPDF2 import PdfFileMerger, PdfFileReader
+
+
+def pdf_parse_using_pypdf2(path=None, search_text=None):
+    files_to_process = ['.pdf']
+    for root, dirnames, filenames in os.walk(path):
+        for file in filenames:
+            fileName, ext = os.path.splitext(file)
+            if ext.lower() in files_to_process:
+                print(f"Processing {file}... ")
+                pdf = PdfFileReader(file, 'rb')
+                number_of_pages = pdf.getNumPages()
+                print(number_of_pages)
+                page = pdf.getPage(1)
+                print(page.extractText())
+                if search_text:
+                    page_content = page.extractText()
+                    print(page_content)
+                    if search_text in page_content:
+                        print(f"Found {search_text} in PDF!")
+
 
 def merge_pdfs(path=None):
     """
