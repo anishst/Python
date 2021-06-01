@@ -17,6 +17,10 @@ def combine_excel_files_to_single_df(path=None):
 def read_excel_with_pandas(filename):
     df = pd.read_excel(filename)
     print(df)
+    # for index, row in df.tail(5).iterrows():
+    #     print(index, row)
+    #     if "Total" in row:
+    #         print(f"found row at {index}")
 
 def read_excel_with_xlrd(filename):
     import xlrd

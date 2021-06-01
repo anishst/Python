@@ -1,7 +1,4 @@
-from ATSFramework import CommonOperations
-
-myFramework =  CommonOperations()
-
+import random
 import os
 from datetime import datetime
 import time
@@ -23,7 +20,7 @@ def get_exif(fn):
         return False
 
 
-path = r'H:\My Pictues\New Home'
+path = r'D:\Pictures\2014\Phone Videos'
 for root, dirnames, filenames in os.walk(path):
 
 		videoFiles = ['.avi', '.mp4', '.m4v','.mov']
@@ -45,7 +42,7 @@ for root, dirnames, filenames in os.walk(path):
 					os.rename(os.path.join(root,file), os.path.join(root, new_name))
 				except Exception as e:
 					print("no metadata found {}".format(e))
-					new_name = '{}{}{}{}{}'.format(time.strftime('%Y%m%d',time.gmtime(os.path.getmtime(os.path.join(root,file)))),"_",dirname,myFramework.RandomNumber(2,1100),ext)
+					new_name = '{}{}{}{}{}'.format(time.strftime('%Y%m%d',time.gmtime(os.path.getmtime(os.path.join(root,file)))),"_",dirname,random.randrange(2,1100),ext)
 					print(new_name)
 					os.rename(os.path.join(root,file), os.path.join(root, new_name))
 			elif ext.lower() in videoFiles:
@@ -53,7 +50,7 @@ for root, dirnames, filenames in os.walk(path):
 					filename, ext = os.path.splitext(file)
 					# get directory name it title format and remove spaces
 					dirname = root.split(os.path.sep)[-1].title().replace(' ',"")					
-					new_name = '{}{}{}{}{}'.format(time.strftime('%Y%m%d',time.gmtime(os.path.getmtime(os.path.join(root,file)))),"_",dirname,myFramework.RandomNumber(2,1100),ext)
+					new_name = '{}{}{}{}{}'.format(time.strftime('%Y%m%d',time.gmtime(os.path.getmtime(os.path.join(root,file)))),"_",dirname,random.randrange(2,1100),ext)
 					os.rename(os.path.join(root,file), os.path.join(root, new_name))
 				except Exception as e:
 					print("There was an issue with {}{}".format(file,e))
