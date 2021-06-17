@@ -2,8 +2,31 @@
 import os
 import re
 import fitz
-from PyPDF2 import PdfFileMerger, PdfFileReader
+from PyPDF2 import PdfFileMerger, PdfFileReader, PdfFileWriter
 
+def split_pdf(filepath):
+    #https://levelup.gitconnected.com/automation-with-python-splitting-pdf-documents-40d49dfada49
+    inputpdf = PdfFileReader(open(filepath, "rb"))
+
+    start = 0
+    end = 20
+    # iterate over the original document, select and add as many pages as we need to the new document (in our case 20).
+    while (inputpdf.numPages > start):
+        output = PdfFileWriter()
+
+        for page in range(start, end):
+            try:
+                output.addPage(inputpdf.getPage(page))
+            except IndexError:
+                break
+
+        pages = str(start + 1) + '-' + str(end)
+
+        with open("document_%s.pdf" % pages, "wb") as outputStream:
+            output.write(outputStream)
+
+        start = end
+        end += 20
 
 def pdf_parse_using_pypdf2(path=None, search_text=None):
     files_to_process = ['.pdf']
