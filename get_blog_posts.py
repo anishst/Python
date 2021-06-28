@@ -19,6 +19,7 @@ blog_list = [
     "https://www.deque.com/blog/,//h2/a",
     "https://python.plainenglish.io/, //a[@class='']",
     "https://aws.amazon.com/blogs/devops/, //h2[@class='blog-post-title']/a",
+    "https://devqa.io/, //h2/a"
 ]
 
 for item in blog_list:
